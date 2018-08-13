@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +52,8 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
     editTextRak, editTextKapasitas, editTextDataPort;
     private Button btnTambahData, btnPilihFile;
     private TextView textViewPathPhoto;
+    private ImageView imageThumb;
+    private Uri uri;
 
     private TambahDataService tambahDataService;
 
@@ -58,7 +61,6 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_tambah_otb);
-
         requestStoragePermission();
         init();
 //        btnTambahData.setOnClickListener (new View.OnClickListener () {
@@ -79,6 +81,7 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
         editTextKapasitas = (EditText)findViewById (R.id.editTextKapasitas);
         editTextDataPort = (EditText)findViewById (R.id.editTextDataPort);
         textViewPathPhoto = (TextView)findViewById (R.id.textPathPhoto);
+        imageThumb = (ImageView)findViewById (R.id.img_thumb);
 
         spinnerLokasi = (Spinner)findViewById (R.id.spnTambahLokasi);
         btnTambahData = (Button)findViewById (R.id.btnTambahDataOTB);
@@ -267,9 +270,10 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
             case REQUEST_CHOOSER:
                 if (resultCode == RESULT_OK) {
 
-                    final Uri uri = data.getData();
+                    uri = data.getData();
                     final String path = FileUtils.getPath(this, uri);
                     textViewPathPhoto.setText(path);
+                    imageThumb.setImageURI (uri);
                 }
                 break;
         }
