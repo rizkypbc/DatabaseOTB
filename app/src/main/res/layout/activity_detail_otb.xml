@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailOTB">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textViewTitleNamaOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDataNamaOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OTB 07-A1-002"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitleNamaOTB" />
+
+        <TextView
+            android:id="@+id/textViewTitleLokasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Lokasi"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDataLokasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Balikpapan"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitleLokasi" />
+
+        <TextView
+            android:id="@+id/textViewTitleTipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Tipe"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDataLokasi"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <TextView
+            android:id="@+id/textViewDataTipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Backbone"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitleTipe" />
+
+        <TextView
+            android:id="@+id/textViewTitleArah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Arah"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDataTipe"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <TextView
+            android:id="@+id/textViewDataArah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sepaku-Muarajawa-KST"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitleArah" />
+
+        <TextView
+            android:id="@+id/textViewTitleRak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Rak"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDataArah"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <TextView
+            android:id="@+id/textViewDataRak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Multiplex-01"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitleRak" />
+
+        <TextView
+            android:id="@+id/textViewTitleKapasitas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Kapasitas"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDataRak"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <TextView
+            android:id="@+id/textViewDataKapasitas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="48"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitleKapasitas" />
+
+        <TextView
+            android:id="@+id/textViewTitleDataPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Data Port"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDataKapasitas"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <EditText
+            android:id="@+id/textViewDataPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:text="1-2 DWDM Sepaku\n3-4 OSN Huawei\n5-6 Total\n7-8 Siemens KS Tubun\n9-12 Kosong"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitleDataPort" />
+
+        <TextView
+            android:id="@+id/textViewTitlePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Photo"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDataPort"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <ImageView
+            android:id="@+id/imagePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitlePhoto"/>
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/textViewDataPhoto"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="URL PHOTO"-->
+            <!--android:textSize="20sp"-->
+            <!--android:textStyle="bold"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/textViewTitlePhoto" />-->
+
+    </LinearLayout>
+
+
+</ScrollView>

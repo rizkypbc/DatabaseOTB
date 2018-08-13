@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "467240667282",
+    "firebase_url": "https://databaseotb.firebaseio.com",
+    "project_id": "databaseotb",
+    "storage_bucket": "databaseotb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467240667282:android:15221bb71e85789d",
+        "android_client_info": {
+          "package_name": "bpp.arnet.project.databaseotb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467240667282-tqv1lsmk3u4ksi9j97k9i52f4hqrbam8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHjQhTLL0k0pJtuu8f1H3qv6PLbXMbwko"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
