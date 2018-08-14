@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateOTB">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+
+        <TextView
+            android:id="@+id/textJudupUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Update Data OTB"
+            android:textColor="@color/colorPrimary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textUpdateNamaOTB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Nama OTB"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextUpdateNamaOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textUpdateTipeOTB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Tipe OTB"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextUpdateTipeOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textUpdateArahOTB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Arah OTB"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextUpdateArahOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textUpdateRakOTB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Rak OTB"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextUpdateRakOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textUpdateKapasitasOTB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Kapasitas OTB"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextUpdateKapasitasOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textUpdateDataPort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Data Port OTB"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextUpdateDataPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textUpdateDataPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Photo"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/update_img_thumb"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/textUpdatePathPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Path Photo"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonUpdatePilihFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="Browse File Photo"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/textUpdateLokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Lokasi OTB"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextUpdateLokasiOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/textUpdateIdOTB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="ID OTB"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btnUpdateDataOTB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Update"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</ScrollView>

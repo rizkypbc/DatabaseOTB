@@ -109,7 +109,8 @@ public class ListLokasi extends AppCompatActivity {
                                     for (int i = 0; i < jsonArray.length (); i++) {
 
                                         JSONObject jsonObject1 = jsonArray.getJSONObject (i);
-                                        OTB otb = new OTB (jsonObject1.getString ("nama"),
+                                        OTB otb = new OTB (jsonObject1.getString ("id"),
+                                                jsonObject1.getString ("nama"),
                                                 jsonObject1.getString ("tipe"),
                                                 jsonObject1.getString ("arah"),
                                                 jsonObject1.getString ("rak"),

@@ -31,9 +31,9 @@
             android:name=".DetailOTB"
             android:label="Detail Data OTB"
             android:parentActivityName=".ListLokasi" />
-        <activity android:name=".TambahOTB"
-            android:parentActivityName=".ListLokasi"/>
-
+        <activity
+            android:name=".TambahOTB"
+            android:parentActivityName=".ListLokasi" />
         <activity
             android:name="com.ipaulpro.afilechooser.FileChooserActivity"
             android:enabled="@bool/use_activity"
@@ -42,12 +42,14 @@
             android:label="@string/choose_file">
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.OPENABLE" />
 
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
+        <activity android:name=".UpdateOTB"/>
     </application>
 
 </manifest>

@@ -81,17 +81,18 @@ public class AdapterOTB extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     //Open Detail Activity
-                    openDetailOTB (otb.getNama (), otb.getTipe (), otb.getArah (), otb.getRak (), otb.getKapasitas (), otb.getData_port (), otb.getFoto (), otb.getNama_lokasi ());
+                    openDetailOTB (otb.getId (), otb.getNama (), otb.getTipe (), otb.getArah (), otb.getRak (), otb.getKapasitas (), otb.getData_port (), otb.getFoto (), otb.getNama_lokasi ());
 
                 }
             });
             return convertView;
         }
 
-        private void openDetailOTB(String nama, String tipe, String arah, String rak, String kapasitas, String data_port, String foto, String nama_lokasi){
+        private void openDetailOTB(String id, String nama, String tipe, String arah, String rak, String kapasitas, String data_port, String foto, String nama_lokasi){
 
             Intent intent = new Intent (context, DetailOTB.class);
             //Data
+            intent.putExtra ("ID_KEY", id);
             intent.putExtra ("NAMA_KEY", nama);
             intent.putExtra ("TIPE_KEY", tipe);
             intent.putExtra ("ARAH_KEY", arah);

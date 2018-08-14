@@ -194,6 +194,15 @@
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintTop_toBottomOf="@+id/textViewTitlePhoto"/>
 
+        <TextView
+            android:id="@+id/DetailPathPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Path Photo"
+            android:textSize="16sp" />
+
 
         <!--<TextView-->
             <!--android:id="@+id/textViewDataPhoto"-->
@@ -205,6 +214,19 @@
             <!--app:layout_constraintEnd_toEndOf="parent"-->
             <!--app:layout_constraintStart_toStartOf="parent"-->
             <!--app:layout_constraintTop_toBottomOf="@+id/textViewTitlePhoto" />-->
+
+        <TextView
+            android:id="@+id/textViewId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Id OTB"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDataPort"
+            tools:layout_editor_absoluteY="89dp" />
 
     </LinearLayout>
 
