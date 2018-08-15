@@ -1,6 +1,7 @@
 package bpp.arnet.project.databaseotb;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     //progress dialog
     private ProgressDialog progressDialog;
+
 
 
     @Override
@@ -100,6 +102,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             //start the home activity
                             finish ();
                             startActivity (new Intent (getApplicationContext (), HomeActivity.class));
+                        } else {
+
+                            Toast.makeText (LoginActivity.this, "Login Error, Cek Koneksi Anda", Toast.LENGTH_SHORT).show ();
                         }
                     }
                 });
