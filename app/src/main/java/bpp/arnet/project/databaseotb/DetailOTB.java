@@ -1,6 +1,7 @@
 package bpp.arnet.project.databaseotb;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -32,6 +33,8 @@ public class DetailOTB extends AppCompatActivity {
     private TextView namaOTB, lokasiOTB, tipeOTB, arahOTB,
     rakOTB, kapasitasOTB, dataPortOTB, idOTB, pathPhoto;
     private ImageView photoOTB;
+
+    SharedPreferences sharedPreferences;
 
 
 
@@ -107,9 +110,9 @@ public class DetailOTB extends AppCompatActivity {
             case R.id.action_update:
 
                 Intent intent = new Intent (this, UpdateOTB.class);
-
                 String namaValue = namaOTB.getText ().toString ();
                 intent.putExtra ("nama", namaValue);
+
 
                 String tipeValue = tipeOTB.getText ().toString ();
                 intent.putExtra ("tipe", tipeValue);
@@ -136,10 +139,13 @@ public class DetailOTB extends AppCompatActivity {
                 intent.putExtra ("id", idValue);
 
                 this.startActivity (intent);
+
                 break;
         }
 
         return super.onOptionsItemSelected (item);
     }
+
+
 
 }

@@ -49,9 +49,9 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
 
     private Spinner spinnerLokasi;
     private EditText editTextNamaOTB, editTextTipe, editTextArah,
-    editTextRak, editTextKapasitas, editTextDataPort;
+    editTextRak, editTextKapasitas, editTextDataPort, editTextPathPhoto;
     private Button btnTambahData, btnPilihFile;
-    private TextView textViewPathPhoto;
+//    private TextView textViewPathPhoto;
     private ImageView imageThumb;
     private Uri uri;
 
@@ -80,7 +80,8 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
         editTextRak = (EditText)findViewById (R.id.editTextRak);
         editTextKapasitas = (EditText)findViewById (R.id.editTextKapasitas);
         editTextDataPort = (EditText)findViewById (R.id.editTextDataPort);
-        textViewPathPhoto = (TextView)findViewById (R.id.textPathPhoto);
+//        textViewPathPhoto = (TextView)findViewById (R.id.textPathPhoto);
+        editTextPathPhoto = (EditText)findViewById (R.id.editTextPathPhoto);
         imageThumb = (ImageView)findViewById (R.id.img_thumb);
 
         spinnerLokasi = (Spinner)findViewById (R.id.spnTambahLokasi);
@@ -184,7 +185,7 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
 
             case R.id.btnTambahDataOTB:
 
-                final String path = textViewPathPhoto.getText ().toString ();
+                final String path = editTextPathPhoto.getText ().toString ();
 
                 if (path != null && FileUtils.isLocal (path)){
 
@@ -222,9 +223,9 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
                 }
 
 
-                if ("".equals(textViewPathPhoto.getText().toString())) {
-                    textViewPathPhoto.setError("Pilih Photo");
-                    textViewPathPhoto.requestFocus();
+                if ("".equals(editTextPathPhoto.getText().toString())) {
+                    editTextPathPhoto.setError("Pilih Photo");
+                    editTextPathPhoto.requestFocus();
                     return;
                 }
 
@@ -272,7 +273,7 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
 
                     uri = data.getData();
                     final String path = FileUtils.getPath(this, uri);
-                    textViewPathPhoto.setText(path);
+                    editTextPathPhoto.setText(path);
                     imageThumb.setImageURI (uri);
                 }
                 break;

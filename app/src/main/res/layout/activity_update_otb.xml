@@ -152,14 +152,24 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/textUpdatePathPhoto"
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:id="@+id/editTextUpdatePathPhoto"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Path Photo"
-            android:textSize="16sp" />
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary" />
+        <!--<TextView-->
+            <!--android:id="@+id/textUpdatePathPhoto"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:text="Path Photo"-->
+            <!--android:textSize="16sp" />-->
 
         <Button
             android:id="@+id/buttonUpdatePilihFile"
