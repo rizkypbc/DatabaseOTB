@@ -20,4 +20,6 @@ public interface TambahDataInterface {
             @Field ("data_port") String data_port,
             @Field ("nama_lokasi") String nama_lokasi
     );
+
+
 }

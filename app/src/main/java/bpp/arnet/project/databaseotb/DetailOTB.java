@@ -1,32 +1,29 @@
 package bpp.arnet.project.databaseotb;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
-import android.net.Uri;
-import android.os.Parcelable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.ByteArrayOutputStream;
-import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.regex.Pattern;
-
-import bpp.arnet.project.databaseotb.Model.OTB;
+import bpp.arnet.project.databaseotb.Model.BaseResponse;
+import bpp.arnet.project.databaseotb.Network.Config.API;
+import bpp.arnet.project.databaseotb.Network.DeleteDataService;
+import bpp.arnet.project.databaseotb.Network.Interfaces.DeleteDataInterface;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DetailOTB extends AppCompatActivity {
 
@@ -34,7 +31,7 @@ public class DetailOTB extends AppCompatActivity {
     rakOTB, kapasitasOTB, dataPortOTB, idOTB, pathPhoto;
     private ImageView photoOTB;
 
-    SharedPreferences sharedPreferences;
+    private DeleteDataService deleteDataService;
 
 
 
@@ -90,9 +87,6 @@ public class DetailOTB extends AppCompatActivity {
                 .error (android.R.drawable.stat_notify_error)
                 .into (photoOTB);
 
-
-
-
     }
 
     @Override
@@ -141,9 +135,62 @@ public class DetailOTB extends AppCompatActivity {
                 this.startActivity (intent);
 
                 break;
+
+            case R.id.action_delete:
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder (this);
+                alertDialog.setTitle ("Peringatan");
+                alertDialog.setMessage ("Apakah Anda yakin ingin menghapus data ini ?").
+                        setCancelable (false)
+                        .setPositiveButton ("Hapus", new DialogInterface.OnClickListener () {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                deleteData ();
+
+                            }
+                        }).setNegativeButton ("Batal", new DialogInterface.OnClickListener () {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.cancel ();
+                    }
+                });
+                AlertDialog dialog = alertDialog.create ();
+                dialog.show ();
+                break;
         }
 
         return super.onOptionsItemSelected (item);
+    }
+
+    private void deleteData(){
+
+        String id = idOTB.getText ().toString ();
+        deleteDataService = new DeleteDataService (getApplicationContext ());
+        deleteDataService.doDeleteData (id, new Callback () {
+            @Override
+            public void onResponse(Call call, Response response) {
+
+                BaseResponse baseResponse = (BaseResponse)response.body ();
+                if (baseResponse != null){
+
+                    if (!baseResponse.isError ()){
+
+                        ListLokasi.start (DetailOTB.this);
+                        DetailOTB.this.finish ();
+                    }
+
+                    Toast.makeText (DetailOTB.this, baseResponse.getMessage (), Toast.LENGTH_LONG).show ();
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+                Toast.makeText (DetailOTB.this, "An Error Occured", Toast.LENGTH_LONG).show ();
+            }
+        });
     }
 
 
