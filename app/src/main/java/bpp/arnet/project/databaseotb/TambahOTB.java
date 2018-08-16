@@ -284,7 +284,7 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
                           String kapasitas, String data_port, String nama_lokasi){
 
         // ip komputer server
-        String upLoadServerUri = "http://192.168.1.17/otb/tambahDataWithImage.php";
+        String upLoadServerUri = "http://192.168.1.11/otb/tambahDataWithImage.php";
         String fileName = sourceFileUri;
         HttpURLConnection conn = null;
         DataOutputStream dos = null;

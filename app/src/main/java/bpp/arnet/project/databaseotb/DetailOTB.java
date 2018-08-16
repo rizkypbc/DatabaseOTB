@@ -1,19 +1,30 @@
 package bpp.arnet.project.databaseotb;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Date;
 
 import bpp.arnet.project.databaseotb.Model.BaseResponse;
 import bpp.arnet.project.databaseotb.Network.Config.API;
@@ -30,6 +41,9 @@ public class DetailOTB extends AppCompatActivity {
     private TextView namaOTB, lokasiOTB, tipeOTB, arahOTB,
     rakOTB, kapasitasOTB, dataPortOTB, idOTB, pathPhoto;
     private ImageView photoOTB;
+
+    private Button buttonSavePhoto;
+    private ProgressDialog m_ProgressDialog;
 
     private DeleteDataService deleteDataService;
 
@@ -54,6 +68,7 @@ public class DetailOTB extends AppCompatActivity {
 
         photoOTB = (ImageView)findViewById (R.id.imagePhoto);
 
+        buttonSavePhoto = (Button)findViewById (R.id.buttonSavePhoto);
 
         //Receive Data
         Intent intent = this.getIntent ();
@@ -77,9 +92,8 @@ public class DetailOTB extends AppCompatActivity {
         kapasitasOTB.setText (kapasitas);
         dataPortOTB.setText (data_port);
         pathPhoto.setText (photo);
-//        String urlPhoto = "http://192.168.1.44/otb/img/" + photo;
 
-        String urlPhoto = "http://192.168.1.17/otb/img/" + photo;
+        String urlPhoto = "http://192.168.1.11/otb/img/" + photo;
         urlPhoto = urlPhoto.replaceAll (" ", "%20");
         Picasso.with (this)
                 .load (urlPhoto)
@@ -87,7 +101,69 @@ public class DetailOTB extends AppCompatActivity {
                 .error (android.R.drawable.stat_notify_error)
                 .into (photoOTB);
 
+        buttonSavePhoto.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+
+                simpanPhoto ();
+            }
+        });
     }
+
+
+    public void simpanPhoto(){
+
+        Intent intent = this.getIntent ();
+        final String savePhoto = intent.getExtras ().getString ("FOTO_KEY");
+
+        String saveUrlPhoto = "http://192.168.1.11/otb/img/" + savePhoto;
+        saveUrlPhoto = saveUrlPhoto.replaceAll (" ", "%20");
+
+        Picasso.with (getApplicationContext ()).load (saveUrlPhoto).into (new Target () {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+
+
+
+                try {
+
+                    String root = Environment.getExternalStorageDirectory ().toString ();
+                    File myDir = new File (root + "/Download");
+                    if (!myDir.exists ()){
+
+                        myDir.mkdirs ();
+                    }
+
+                    String name = savePhoto.toString();
+                    myDir = new File (myDir, name);
+                    FileOutputStream outputStream = new FileOutputStream (myDir);
+                    bitmap.compress (Bitmap.CompressFormat.JPEG, 90, outputStream);
+                    outputStream.flush ();
+                    outputStream.close ();
+                    Toast.makeText (DetailOTB.this, "Berhasil Simpan Photo", Toast.LENGTH_LONG).show ();
+
+                } catch (Exception e){
+
+                    e.printStackTrace ();
+                }
+
+
+            }
+
+            @Override
+            public void onBitmapFailed(Drawable errorDrawable) {
+
+                Toast.makeText (DetailOTB.this, "Gagal Mendownload Photo, Periksa Koneksi Anda", Toast.LENGTH_SHORT).show ();
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+            }
+        });
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
