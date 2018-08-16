@@ -3,12 +3,14 @@ package bpp.arnet.project.databaseotb;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,10 +63,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLogin = (Button) findViewById (R.id.buttonLogin);
         textViewDaftar = (TextView) findViewById (R.id.textViewDaftar);
 
-        String daftar = "Dont have a account? <b>Register here<b>";
+        String daftar = "Don't have a account? <font color='#b53f41'><b>Register here<b></font>";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder (Html.fromHtml (daftar));
         textViewDaftar.setText (spannableStringBuilder);
-
         progressDialog = new ProgressDialog (this);
 
         //attaching click listener

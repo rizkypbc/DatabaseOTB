@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Login"
+        style="?attr/rippleColor"
         android:textColor="@android:color/white"
         android:background="@drawable/button_shape"
         app:layout_constraintEnd_toEndOf="parent"
