@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -59,6 +61,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLogin = (Button) findViewById (R.id.buttonLogin);
         textViewDaftar = (TextView) findViewById (R.id.textViewDaftar);
 
+        String daftar = "Dont have a account? <b>Register here<b>";
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder (Html.fromHtml (daftar));
+        textViewDaftar.setText (spannableStringBuilder);
+
         progressDialog = new ProgressDialog (this);
 
         //attaching click listener
@@ -74,12 +80,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //checking if email and password are empty
         if (TextUtils.isEmpty (emailLogin)){
-            Toast.makeText (this, "Please enter email", Toast.LENGTH_LONG).show ();
+            editTextEmailLogin.setError ("Email Tidak Boleh Kosong");
+            editTextEmailLogin.requestFocus ();
             return;
         }
 
         if (TextUtils.isEmpty (passwordLogin)){
-            Toast.makeText (this, "Please enter password", Toast.LENGTH_LONG).show ();
+            editTextPasswordLogin.setError ("Password Tidak Boleh Kosong");
+            editTextPasswordLogin.requestFocus ();
             return;
         }
 
@@ -104,7 +112,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             startActivity (new Intent (getApplicationContext (), HomeActivity.class));
                         } else {
 
-                            Toast.makeText (LoginActivity.this, "Login Error, Cek Koneksi Anda", Toast.LENGTH_SHORT).show ();
+                            Toast.makeText (LoginActivity.this, "Login Error, Cek Koneksi Anda dan Data Anda", Toast.LENGTH_SHORT).show ();
                         }
                     }
                 });
