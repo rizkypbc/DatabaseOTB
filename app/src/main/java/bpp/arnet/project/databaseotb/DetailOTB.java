@@ -27,9 +27,11 @@ import java.io.FileOutputStream;
 import java.util.Date;
 
 import bpp.arnet.project.databaseotb.Model.BaseResponse;
+import bpp.arnet.project.databaseotb.Model.Value;
 import bpp.arnet.project.databaseotb.Network.Config.API;
 import bpp.arnet.project.databaseotb.Network.DeleteDataService;
 import bpp.arnet.project.databaseotb.Network.Interfaces.DeleteDataInterface;
+import bpp.arnet.project.databaseotb.Network.Interfaces.RegisterAPI;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,13 +43,9 @@ public class DetailOTB extends AppCompatActivity {
     private TextView namaOTB, lokasiOTB, tipeOTB, arahOTB,
     rakOTB, kapasitasOTB, dataPortOTB, idOTB, pathPhoto;
     private ImageView photoOTB;
-
     private Button buttonSavePhoto;
-    private ProgressDialog m_ProgressDialog;
 
-    private DeleteDataService deleteDataService;
-
-
+    public static final String URL = "https://aksesblk-samarinda.com/otb/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +91,7 @@ public class DetailOTB extends AppCompatActivity {
         dataPortOTB.setText (data_port);
         pathPhoto.setText (photo);
 
-        String urlPhoto = "http://192.168.10.121/otb/img/" + photo;
+        String urlPhoto = "https://aksesblk-samarinda.com/otb/img/" + photo;
         urlPhoto = urlPhoto.replaceAll (" ", "%20");
         Picasso.with (this)
                 .load (urlPhoto)
@@ -116,7 +114,7 @@ public class DetailOTB extends AppCompatActivity {
         Intent intent = this.getIntent ();
         final String savePhoto = intent.getExtras ().getString ("FOTO_KEY");
 
-        String saveUrlPhoto = "http://192.168.10.121/otb/img/" + savePhoto;
+        String saveUrlPhoto = "https://aksesblk-samarinda.com/otb/img/" + savePhoto;
         saveUrlPhoto = saveUrlPhoto.replaceAll (" ", "%20");
 
         Picasso.with (getApplicationContext ()).load (saveUrlPhoto).into (new Target () {
@@ -222,7 +220,40 @@ public class DetailOTB extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                deleteData ();
+//                                deleteData ();
+                                String id = idOTB.getText ().toString ();
+                                Retrofit retrofit = new Retrofit.Builder ()
+                                        .baseUrl (URL)
+                                        .addConverterFactory (GsonConverterFactory.create ())
+                                        .build ();
+
+                                RegisterAPI api = retrofit.create (RegisterAPI.class);
+                                Call<Value> call = api.hapus (id);
+                                call.enqueue (new Callback<Value> () {
+                                    @Override
+                                    public void onResponse(Call<Value> call, Response<Value> response) {
+
+                                        String value = response.body ().getValue ();
+                                        String message = response.body ().getMessage ();
+                                        if (value.equals ("1")){
+
+                                            Toast.makeText (DetailOTB.this, message, Toast.LENGTH_SHORT).show ();
+                                            finish ();
+                                        } else {
+
+                                            Toast.makeText (DetailOTB.this, message, Toast.LENGTH_SHORT).show ();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Value> call, Throwable t) {
+
+                                        t.printStackTrace ();
+                                        Toast.makeText (DetailOTB.this, "Berhasil Hapus Data", Toast.LENGTH_SHORT).show ();
+                                        ListLokasi.start (DetailOTB.this);
+                                        DetailOTB.this.finish ();
+                                    }
+                                });
 
                             }
                         }).setNegativeButton ("Batal", new DialogInterface.OnClickListener () {
@@ -240,34 +271,6 @@ public class DetailOTB extends AppCompatActivity {
         return super.onOptionsItemSelected (item);
     }
 
-    private void deleteData(){
-
-        String id = idOTB.getText ().toString ();
-        deleteDataService = new DeleteDataService (getApplicationContext ());
-        deleteDataService.doDeleteData (id, new Callback () {
-            @Override
-            public void onResponse(Call call, Response response) {
-
-                BaseResponse baseResponse = (BaseResponse)response.body ();
-                if (baseResponse != null){
-
-                    if (!baseResponse.isError ()){
-
-                        ListLokasi.start (DetailOTB.this);
-                        DetailOTB.this.finish ();
-                    }
-
-                    Toast.makeText (DetailOTB.this, baseResponse.getMessage (), Toast.LENGTH_LONG).show ();
-                }
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-
-                Toast.makeText (DetailOTB.this, "An Error Occured", Toast.LENGTH_LONG).show ();
-            }
-        });
-    }
 
 
 

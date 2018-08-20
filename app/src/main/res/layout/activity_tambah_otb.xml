@@ -191,7 +191,8 @@
             style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary" />
+            android:backgroundTint="@color/colorPrimary"
+            android:entries="@array/lokasi"/>
 
         <Button
             android:id="@+id/btnTambahDataOTB"

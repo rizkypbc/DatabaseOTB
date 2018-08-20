@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Database OTB</string>
+    
+    <string-array name="lokasi">
+        <item>Balikpapan Baru</item>
+        <item>Balikpapan Centrum</item>
+        <item>Batu Ampar</item>
+        <item>CLS Sepinggan</item>
+        <item>KS Tubun</item>
+        <item>Kuaro</item>
+        <item>Labangka</item>
+        <item>Muarajawa</item>
+        <item>Muarakomam</item>
+        <item>Penajam</item>
+        <item>Sepaku</item>
+        <item>Tanah Grogot</item>
+    </string-array>
 </resources>

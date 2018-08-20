@@ -251,8 +251,8 @@ public class UpdateOTB extends AppCompatActivity implements View.OnClickListener
                         System.out.println("RES : " + response);
                     }
                 }).start ();
-                ListLokasi.start (UpdateOTB.this);
-                UpdateOTB.this.finish ();
+//                ListLokasi.start (UpdateOTB.this);
+//                UpdateOTB.this.finish ();
                 break;
 
                 default:
@@ -280,7 +280,7 @@ public class UpdateOTB extends AppCompatActivity implements View.OnClickListener
                           String arah, String rak, String kapasitas, String data_port,
                           String nama_lokasi, String id){
 
-        String upLoadServerUri = "http://192.168.10.121/otb/updateDataWithImage.php";
+        String upLoadServerUri = "https://aksesblk-samarinda.com/otb/updateDataWithImage.php";
         String fileName = sourceFileUri;
         HttpURLConnection conn = null;
         DataOutputStream dos = null;
@@ -402,7 +402,7 @@ public class UpdateOTB extends AppCompatActivity implements View.OnClickListener
                         LayoutInflater inflater = getLayoutInflater();
                         View toastLayout = inflater.inflate(R.layout.custom_toast_update, (ViewGroup) findViewById(R.id.custom_toast_update));
 
-                        Toast toast = new Toast(getApplicationContext());
+                        Toast toast = new Toast(getApplicationContext ());
 
                         toast.setDuration(Toast.LENGTH_LONG);
                         toast.setDuration(Toast.LENGTH_LONG);
@@ -412,6 +412,8 @@ public class UpdateOTB extends AppCompatActivity implements View.OnClickListener
                         toast.show();
                         toast.show();
                         toast.show();
+                        ListLokasi.start (UpdateOTB.this);
+                        UpdateOTB.this.finish ();
                     }
                 });
             } else {
