@@ -1,5 +1,6 @@
 package bpp.arnet.project.databaseotb;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     //view objects
     private TextView textViewUserEmail;
     private ImageView buttonLogout, buttonLiatData;
+
+    public static void start(Context context) {
+
+        Intent intent = new Intent (context, HomeActivity.class);
+        context.startActivity (intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

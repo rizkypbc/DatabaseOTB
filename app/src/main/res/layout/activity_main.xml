@@ -40,7 +40,7 @@
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="220dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="332dp"
         android:ems="10"
@@ -52,7 +52,7 @@
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="220dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
@@ -78,7 +78,7 @@
     <Button
         android:id="@+id/buttonSignup"
         style="?attr/rippleColor"
-        android:layout_width="240dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/button_shape"
@@ -90,7 +90,7 @@
 
     <EditText
         android:id="@+id/editTextConfirmPassword"
-        android:layout_width="220dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
@@ -103,43 +103,43 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
         app:layout_constraintVertical_bias="0.013" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="148dp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEmail"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user" />
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView4"-->
+        <!--android:layout_width="22dp"-->
+        <!--android:layout_height="22dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="148dp"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/editTextEmail"-->
+        <!--app:layout_constraintHorizontal_bias="1.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:srcCompat="@drawable/user" />-->
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextPassword"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:srcCompat="@drawable/password" />
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView5"-->
+        <!--android:layout_width="22dp"-->
+        <!--android:layout_height="22dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="32dp"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/editTextPassword"-->
+        <!--app:layout_constraintHorizontal_bias="1.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/imageView4"-->
+        <!--app:srcCompat="@drawable/password" />-->
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextConfirmPassword"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@drawable/password" />
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView6"-->
+        <!--android:layout_width="22dp"-->
+        <!--android:layout_height="22dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="32dp"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/editTextConfirmPassword"-->
+        <!--app:layout_constraintHorizontal_bias="1.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/imageView5"-->
+        <!--app:srcCompat="@drawable/password" />-->
 
 </android.support.constraint.ConstraintLayout>

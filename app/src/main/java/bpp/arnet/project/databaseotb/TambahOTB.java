@@ -40,7 +40,7 @@ import retrofit2.Response;
 
 public class TambahOTB extends AppCompatActivity implements View.OnClickListener{
 
-    final String API_LOKASI = "https://aksesblk-samarinda.com/otb/spinnerLokasi.php";
+    final String API_LOKASI = "http://aksesblk-samarinda.com/otb/spinnerLokasi.php";
 
     private static final int STORAGE_PERMISSION_CODE = 123;
     private static final int REQUEST_CHOOSER = 1234;
@@ -285,7 +285,7 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
                           String kapasitas, String data_port, String nama_lokasi){
 
         // ip komputer server
-        String upLoadServerUri = "https://aksesblk-samarinda.com/otb/tambahDataWithImage.php";
+        String upLoadServerUri = "http://aksesblk-samarinda.com/otb/tambahDataWithImage.php";
         String fileName = sourceFileUri;
         HttpURLConnection conn = null;
         DataOutputStream dos = null;
@@ -415,6 +415,8 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
                         toast.show();
                         toast.show();
                         toast.show();
+                        ListLokasi.start (TambahOTB.this);
+                        TambahOTB.this.finish ();
                     }
                 });
             } else {

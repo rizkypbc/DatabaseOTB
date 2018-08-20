@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -45,7 +46,7 @@ public class DetailOTB extends AppCompatActivity {
     private ImageView photoOTB;
     private Button buttonSavePhoto;
 
-    public static final String URL = "https://aksesblk-samarinda.com/otb/";
+    public static final String URL = "http://aksesblk-samarinda.com/otb/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +92,7 @@ public class DetailOTB extends AppCompatActivity {
         dataPortOTB.setText (data_port);
         pathPhoto.setText (photo);
 
-        String urlPhoto = "https://aksesblk-samarinda.com/otb/img/" + photo;
+        String urlPhoto = "http://aksesblk-samarinda.com/otb/img/" + photo;
         urlPhoto = urlPhoto.replaceAll (" ", "%20");
         Picasso.with (this)
                 .load (urlPhoto)
@@ -114,7 +115,7 @@ public class DetailOTB extends AppCompatActivity {
         Intent intent = this.getIntent ();
         final String savePhoto = intent.getExtras ().getString ("FOTO_KEY");
 
-        String saveUrlPhoto = "https://aksesblk-samarinda.com/otb/img/" + savePhoto;
+        String saveUrlPhoto = "http://aksesblk-samarinda.com/otb/img/" + savePhoto;
         saveUrlPhoto = saveUrlPhoto.replaceAll (" ", "%20");
 
         Picasso.with (getApplicationContext ()).load (saveUrlPhoto).into (new Target () {
@@ -238,7 +239,8 @@ public class DetailOTB extends AppCompatActivity {
                                         if (value.equals ("1")){
 
                                             Toast.makeText (DetailOTB.this, message, Toast.LENGTH_SHORT).show ();
-                                            finish ();
+                                            ListLokasi.start (DetailOTB.this);
+                                            DetailOTB.this.finish ();
                                         } else {
 
                                             Toast.makeText (DetailOTB.this, message, Toast.LENGTH_SHORT).show ();
@@ -250,11 +252,10 @@ public class DetailOTB extends AppCompatActivity {
 
                                         t.printStackTrace ();
                                         Toast.makeText (DetailOTB.this, "Berhasil Hapus Data", Toast.LENGTH_SHORT).show ();
-                                        ListLokasi.start (DetailOTB.this);
+                                        HomeActivity.start (DetailOTB.this);
                                         DetailOTB.this.finish ();
                                     }
                                 });
-
                             }
                         }).setNegativeButton ("Batal", new DialogInterface.OnClickListener () {
                     @Override

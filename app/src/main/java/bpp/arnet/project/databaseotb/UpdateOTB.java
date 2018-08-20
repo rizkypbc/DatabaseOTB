@@ -280,7 +280,7 @@ public class UpdateOTB extends AppCompatActivity implements View.OnClickListener
                           String arah, String rak, String kapasitas, String data_port,
                           String nama_lokasi, String id){
 
-        String upLoadServerUri = "https://aksesblk-samarinda.com/otb/updateDataWithImage.php";
+        String upLoadServerUri = "http://aksesblk-samarinda.com/otb/updateDataWithImage.php";
         String fileName = sourceFileUri;
         HttpURLConnection conn = null;
         DataOutputStream dos = null;
