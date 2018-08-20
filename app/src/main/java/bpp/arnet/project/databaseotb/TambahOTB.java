@@ -40,7 +40,7 @@ import retrofit2.Response;
 
 public class TambahOTB extends AppCompatActivity implements View.OnClickListener{
 
-    final String API_LOKASI = "http://192.168.1.17/otb/spinnerLokasi.php";
+    final String API_LOKASI = "http://192.168.10.121/otb/spinnerLokasi.php";
 
     private static final int STORAGE_PERMISSION_CODE = 123;
     private static final int REQUEST_CHOOSER = 1234;
@@ -284,7 +284,7 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
                           String kapasitas, String data_port, String nama_lokasi){
 
         // ip komputer server
-        String upLoadServerUri = "http://192.168.1.11/otb/tambahDataWithImage.php";
+        String upLoadServerUri = "http://192.168.10.121/otb/tambahDataWithImage.php";
         String fileName = sourceFileUri;
         HttpURLConnection conn = null;
         DataOutputStream dos = null;

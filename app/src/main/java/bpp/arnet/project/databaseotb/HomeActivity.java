@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,7 +19,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     //view objects
     private TextView textViewUserEmail;
-    private Button buttonLogout, buttonLiatData;
+    private ImageView buttonLogout, buttonLiatData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +44,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         //initializing views
         textViewUserEmail = (TextView) findViewById (R.id.textViewUserEmail);
-        buttonLogout = (Button) findViewById (R.id.buttonLogout);
-        buttonLiatData = (Button)findViewById (R.id.buttonLiatData);
+        buttonLogout = (ImageView) findViewById (R.id.buttonLogout);
+        buttonLiatData = (ImageView) findViewById (R.id.buttonLiatData);
         buttonLiatData.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {

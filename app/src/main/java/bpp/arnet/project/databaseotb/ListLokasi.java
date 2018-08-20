@@ -45,7 +45,7 @@ import bpp.arnet.project.databaseotb.Util.Handler;
 public class ListLokasi extends AppCompatActivity {
 
 //    final static String API_LOKASI = "http://192.168.1.44/otb/dataLokasi.php";
-    final static String API_LOKASI = "http://192.168.1.11/otb/dataLokasi.php";
+    final static String API_LOKASI = "http://192.168.10.121/otb/dataLokasi.php";
     ListView listView;
     TextView textViewLokasi;
     List<OTB> otbList;
@@ -54,7 +54,7 @@ public class ListLokasi extends AppCompatActivity {
     RequestQueue requestQueue;
 
 //    private String JSON_URL = "http://192.168.1.44/otb/dataOtb.php?nama_lokasi=";
-    private String JSON_URL = "http://192.168.1.11/otb/dataOtb.php?nama_lokasi=";
+    private String JSON_URL = "http://192.168.10.121/otb/dataOtb.php?nama_lokasi=";
 
     private ProgressDialog m_ProgressDialog;
     private Spinner spnLokasi;

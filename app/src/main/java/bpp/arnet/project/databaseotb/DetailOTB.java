@@ -93,7 +93,7 @@ public class DetailOTB extends AppCompatActivity {
         dataPortOTB.setText (data_port);
         pathPhoto.setText (photo);
 
-        String urlPhoto = "http://192.168.1.11/otb/img/" + photo;
+        String urlPhoto = "http://192.168.10.121/otb/img/" + photo;
         urlPhoto = urlPhoto.replaceAll (" ", "%20");
         Picasso.with (this)
                 .load (urlPhoto)
@@ -116,7 +116,7 @@ public class DetailOTB extends AppCompatActivity {
         Intent intent = this.getIntent ();
         final String savePhoto = intent.getExtras ().getString ("FOTO_KEY");
 
-        String saveUrlPhoto = "http://192.168.1.11/otb/img/" + savePhoto;
+        String saveUrlPhoto = "http://192.168.10.121/otb/img/" + savePhoto;
         saveUrlPhoto = saveUrlPhoto.replaceAll (" ", "%20");
 
         Picasso.with (getApplicationContext ()).load (saveUrlPhoto).into (new Target () {
