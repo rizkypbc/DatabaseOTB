@@ -96,7 +96,7 @@ public class TambahOTB extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onStart() {
         super.onStart ();
-        new DownloaderLokasi (TambahOTB.this, API_LOKASI, spinnerLokasi).execute ();
+//        new DownloaderLokasi (TambahOTB.this, API_LOKASI, spinnerLokasi).execute ();
     }
 
 //    private void tambahData(){

@@ -29,7 +29,8 @@
         android:backgroundTint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLokasi" />
+        android:entries="@array/lokasi"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLokasi"/>
 
 
     <ListView

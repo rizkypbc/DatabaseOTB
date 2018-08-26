@@ -97,7 +97,7 @@ public class DetailOTB extends AppCompatActivity {
         Picasso.with (this)
                 .load (urlPhoto)
                 .placeholder (R.drawable.ic_launcher_background)
-                .error (android.R.drawable.stat_notify_error)
+                .error (R.drawable.icon_image_no_available)
                 .into (photoOTB);
 
         buttonSavePhoto.setOnClickListener (new View.OnClickListener () {
@@ -224,7 +224,7 @@ public class DetailOTB extends AppCompatActivity {
 //                                deleteData ();
                                 String id = idOTB.getText ().toString ();
                                 Retrofit retrofit = new Retrofit.Builder ()
-                                        .baseUrl (URL)
+                                        .baseUrl (  URL)
                                         .addConverterFactory (GsonConverterFactory.create ())
                                         .build ();
 
@@ -251,9 +251,9 @@ public class DetailOTB extends AppCompatActivity {
                                     public void onFailure(Call<Value> call, Throwable t) {
 
                                         t.printStackTrace ();
-                                        Toast.makeText (DetailOTB.this, "Berhasil Hapus Data", Toast.LENGTH_SHORT).show ();
-                                        HomeActivity.start (DetailOTB.this);
-                                        DetailOTB.this.finish ();
+                                        Toast.makeText (DetailOTB.this, "An Error Occured", Toast.LENGTH_SHORT).show ();
+//                                        HomeActivity.start (DetailOTB.this);
+//                                        DetailOTB.this.finish ();
                                     }
                                 });
                             }

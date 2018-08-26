@@ -44,16 +44,14 @@ import bpp.arnet.project.databaseotb.Util.Handler;
 
 public class ListLokasi extends AppCompatActivity {
 
-//    final static String API_LOKASI = "http://192.168.1.44/otb/dataLokasi.php";
+
     final static String API_LOKASI = "http://aksesblk-samarinda.com/otb/dataLokasi.php";
     ListView listView;
     TextView textViewLokasi;
     List<OTB> otbList;
     List<Lokasi> lokasiList;
-    JsonArrayRequest jsonArrayRequest;
-    RequestQueue requestQueue;
 
-//    private String JSON_URL = "http://192.168.1.44/otb/dataOtb.php?nama_lokasi=";
+
     private String JSON_URL = "http://aksesblk-samarinda.com/otb/dataOtb.php?nama_lokasi=";
 
     private ProgressDialog m_ProgressDialog;
@@ -70,10 +68,9 @@ public class ListLokasi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_list_lokasi);
-//        setTitle("DatabaseOTB");
         otbList = new ArrayList<> ();
         lokasiList = new ArrayList<> ();
-        new GetLokasi ().execute ();
+//        new GetLokasi ().execute ();
 
         spnLokasi = (Spinner) findViewById (R.id.spnLokasi);
         listView = (ListView) findViewById (R.id.listView);
@@ -151,20 +148,6 @@ public class ListLokasi extends AppCompatActivity {
         });
 
 
-
-
-//        recyclerViewLokasi = (RecyclerView) findViewById (R.id.recyclerViewOTB);
-//        progressDialog = new ProgressDialog (ListLokasi.this);
-//        otbList = new ArrayList<> ();
-//        loadJSON ();
-
-
-//        layoutManager = new LinearLayoutManager (ListLokasi.this, LinearLayoutManager.VERTICAL, false);
-//        recyclerViewLokasi.setLayoutManager (layoutManager);
-//        adapter = new AdapterOTB (ListLokasi.this, otbList);
-//        recyclerViewLokasi.setAdapter (adapter);
-
-
     }
 
     private void populateSpinnerLokasi() {
@@ -230,7 +213,6 @@ public class ListLokasi extends AppCompatActivity {
             if (m_ProgressDialog.isShowing ())
                 m_ProgressDialog.dismiss ();
             populateSpinnerLokasi ();
-
         }
     }
 
