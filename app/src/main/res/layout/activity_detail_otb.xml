@@ -172,6 +172,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewTitleDataPort" />
 
+        <Button
+            android:id="@+id/btnDetailDataPort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="Data Port"
+            android:textColor="@android:color/white"/>
+
         <TextView
             android:id="@+id/textViewTitlePhoto"
             android:layout_width="match_parent"

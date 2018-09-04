@@ -42,9 +42,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DetailOTB extends AppCompatActivity {
 
     private TextView namaOTB, lokasiOTB, tipeOTB, arahOTB,
-    rakOTB, kapasitasOTB, dataPortOTB, idOTB, pathPhoto;
+            rakOTB, kapasitasOTB, dataPortOTB, idOTB, pathPhoto;
     private ImageView photoOTB;
-    private Button buttonSavePhoto;
+    private Button buttonSavePhoto, btnDetailDataPort;
 
     public static final String URL = "http://aksesblk-samarinda.com/otb/";
 
@@ -53,21 +53,22 @@ public class DetailOTB extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_detail_otb);
 
-        namaOTB = (TextView)findViewById (R.id.textViewDataNamaOTB);
-        lokasiOTB = (TextView)findViewById (R.id.textViewDataLokasi);
-        tipeOTB = (TextView)findViewById (R.id.textViewDataTipe);
-        arahOTB = (TextView)findViewById (R.id.textViewDataArah);
-        rakOTB = (TextView)findViewById (R.id.textViewDataRak);
-        kapasitasOTB = (TextView)findViewById (R.id.textViewDataKapasitas);
-        dataPortOTB = (TextView)findViewById (R.id.textViewDataPort);
-        idOTB = (TextView)findViewById (R.id.textViewId);
+        namaOTB = (TextView) findViewById (R.id.textViewDataNamaOTB);
+        lokasiOTB = (TextView) findViewById (R.id.textViewDataLokasi);
+        tipeOTB = (TextView) findViewById (R.id.textViewDataTipe);
+        arahOTB = (TextView) findViewById (R.id.textViewDataArah);
+        rakOTB = (TextView) findViewById (R.id.textViewDataRak);
+        kapasitasOTB = (TextView) findViewById (R.id.textViewDataKapasitas);
+        dataPortOTB = (TextView) findViewById (R.id.textViewDataPort);
+        idOTB = (TextView) findViewById (R.id.textViewId);
 
-        pathPhoto = (TextView)findViewById (R.id.DetailPathPhoto);
+        pathPhoto = (TextView) findViewById (R.id.DetailPathPhoto);
         dataPortOTB.setEnabled (false);
 
-        photoOTB = (ImageView)findViewById (R.id.imagePhoto);
+        photoOTB = (ImageView) findViewById (R.id.imagePhoto);
 
-        buttonSavePhoto = (Button)findViewById (R.id.buttonSavePhoto);
+        buttonSavePhoto = (Button) findViewById (R.id.buttonSavePhoto);
+        btnDetailDataPort = (Button) findViewById (R.id.btnDetailDataPort);
 
         //Receive Data
         Intent intent = this.getIntent ();
@@ -107,10 +108,25 @@ public class DetailOTB extends AppCompatActivity {
                 simpanPhoto ();
             }
         });
+
+
+
+        btnDetailDataPort.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+
+                Intent intentNamaOTB = new Intent (DetailOTB.this, DetailDataPort.class);
+                String getNamaOTB = namaOTB.getText ().toString ();
+                intentNamaOTB.putExtra ("keyName", getNamaOTB);
+                startActivity (intentNamaOTB);
+
+            }
+        });
     }
 
 
-    public void simpanPhoto(){
+
+    public void simpanPhoto() {
 
         Intent intent = this.getIntent ();
         final String savePhoto = intent.getExtras ().getString ("FOTO_KEY");
@@ -123,17 +139,16 @@ public class DetailOTB extends AppCompatActivity {
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
 
 
-
                 try {
 
                     String root = Environment.getExternalStorageDirectory ().toString ();
                     File myDir = new File (root + "/Download");
-                    if (!myDir.exists ()){
+                    if (!myDir.exists ()) {
 
                         myDir.mkdirs ();
                     }
 
-                    String name = savePhoto.toString();
+                    String name = savePhoto.toString ();
                     myDir = new File (myDir, name);
                     FileOutputStream outputStream = new FileOutputStream (myDir);
                     bitmap.compress (Bitmap.CompressFormat.JPEG, 90, outputStream);
@@ -141,7 +156,7 @@ public class DetailOTB extends AppCompatActivity {
                     outputStream.close ();
                     Toast.makeText (DetailOTB.this, "Berhasil Simpan Photo", Toast.LENGTH_LONG).show ();
 
-                } catch (Exception e){
+                } catch (Exception e) {
 
                     e.printStackTrace ();
                 }
@@ -174,7 +189,7 @@ public class DetailOTB extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId ()){
+        switch (item.getItemId ()) {
 
             case R.id.action_update:
 
@@ -192,14 +207,14 @@ public class DetailOTB extends AppCompatActivity {
                 String rakValue = rakOTB.getText ().toString ();
                 intent.putExtra ("rak", rakValue);
 
-                String kapasitasValue =  kapasitasOTB.getText ().toString ();
+                String kapasitasValue = kapasitasOTB.getText ().toString ();
                 intent.putExtra ("kapasitas", kapasitasValue);
 
                 String dataPortValue = dataPortOTB.getText ().toString ();
                 intent.putExtra ("data_port", dataPortValue);
 
                 String lokasiValue = lokasiOTB.getText ().toString ();
-                intent.putExtra ("lokasi",lokasiValue);
+                intent.putExtra ("lokasi", lokasiValue);
 
                 String pathPhotoValue = pathPhoto.getText ().toString ();
                 intent.putExtra ("path", pathPhotoValue);
@@ -224,7 +239,7 @@ public class DetailOTB extends AppCompatActivity {
 //                                deleteData ();
                                 String id = idOTB.getText ().toString ();
                                 Retrofit retrofit = new Retrofit.Builder ()
-                                        .baseUrl (  URL)
+                                        .baseUrl (URL)
                                         .addConverterFactory (GsonConverterFactory.create ())
                                         .build ();
 
@@ -236,7 +251,7 @@ public class DetailOTB extends AppCompatActivity {
 
                                         String value = response.body ().getValue ();
                                         String message = response.body ().getMessage ();
-                                        if (value.equals ("1")){
+                                        if (value.equals ("1")) {
 
                                             Toast.makeText (DetailOTB.this, message, Toast.LENGTH_SHORT).show ();
                                             ListLokasi.start (DetailOTB.this);
@@ -271,8 +286,6 @@ public class DetailOTB extends AppCompatActivity {
 
         return super.onOptionsItemSelected (item);
     }
-
-
 
 
 }

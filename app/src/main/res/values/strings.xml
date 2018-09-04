@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Database OTB</string>
-    
+
     <string-array name="lokasi">
         <item>Balikpapan Baru</item>
         <item>Balikpapan Centrum</item>
