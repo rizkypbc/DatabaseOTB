@@ -9,6 +9,20 @@ import retrofit2.http.POST;
 
 public interface RegisterAPI {
 
+
+    @FormUrlEncoded
+    @POST("updateDataPort.php")
+    Call<Value> updateDataPort(@Field ("id_port") String id_port,
+                               @Field ("core") String core,
+                               @Field ("user") String user,
+                               @Field ("direction") String direction,
+                               @Field ("keterangan") String keterangan);
+
+    @FormUrlEncoded
+    @POST("hapusDataPort.php")
+    Call<Value> hapusDataPort(@Field("id_port") String id_port);
+
+
     @FormUrlEncoded
     @POST("hapusData.php")
     Call<Value> hapus(@Field("id") String id);

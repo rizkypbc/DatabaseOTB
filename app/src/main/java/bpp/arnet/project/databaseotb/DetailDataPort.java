@@ -1,5 +1,7 @@
 package bpp.arnet.project.databaseotb;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +17,12 @@ public class DetailDataPort extends AppCompatActivity {
 
     public String urlAddress, DATA_URL_NAMA_PORT;
     RecyclerView recyclerView;
+
+    public static void start(Context context) {
+
+        Intent intent = new Intent (context, DetailDataPort.class);
+        context.startActivity (intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

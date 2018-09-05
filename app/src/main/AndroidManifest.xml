@@ -53,6 +53,7 @@
         <activity
             android:name=".DetailDataPort"
             android:label="Data Port" />
+        <activity android:name=".UpdateDataPort"></activity>
     </application>
 
 </manifest>

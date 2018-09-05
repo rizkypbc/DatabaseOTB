@@ -1,6 +1,7 @@
 package bpp.arnet.project.databaseotb;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -49,6 +50,12 @@ public class DetailOTB extends AppCompatActivity {
     private Button buttonSavePhoto, btnDetailDataPort;
 
     public static final String URL = "http://aksesblk-samarinda.com/otb/";
+
+    public static void start(Context context) {
+
+        Intent intent = new Intent (context, DetailOTB.class);
+        context.startActivity (intent);
+    }
 
 
     @Override
