@@ -13,6 +13,4 @@ public interface RegisterAPI {
     @POST("hapusData.php")
     Call<Value> hapus(@Field("id") String id);
 
-//    @GET("view.php")
-//    Call<Value> view();
 }

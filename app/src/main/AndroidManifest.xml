@@ -50,8 +50,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".UpdateOTB" />
-        <activity android:name=".DetailDataPort"
-            android:label="Data Port"/>
+        <activity
+            android:name=".DetailDataPort"
+            android:label="Data Port" />
     </application>
 
 </manifest>

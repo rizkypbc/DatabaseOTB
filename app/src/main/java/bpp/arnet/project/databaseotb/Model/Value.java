@@ -7,6 +7,11 @@ public class Value {
     String value;
     String message;
     List<OTB> otbList;
+    List<Port> port;
+
+    public List<Port> getPort() {
+        return port;
+    }
 
     public String getValue() {
         return value;
@@ -31,4 +36,5 @@ public class Value {
     public void setOtbList(List<OTB> otbList) {
         this.otbList = otbList;
     }
+
 }

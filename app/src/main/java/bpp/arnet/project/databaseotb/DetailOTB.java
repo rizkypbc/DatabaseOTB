@@ -33,6 +33,8 @@ import bpp.arnet.project.databaseotb.Network.Config.API;
 import bpp.arnet.project.databaseotb.Network.DeleteDataService;
 import bpp.arnet.project.databaseotb.Network.Interfaces.DeleteDataInterface;
 import bpp.arnet.project.databaseotb.Network.Interfaces.RegisterAPI;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,6 +49,7 @@ public class DetailOTB extends AppCompatActivity {
     private Button buttonSavePhoto, btnDetailDataPort;
 
     public static final String URL = "http://aksesblk-samarinda.com/otb/";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

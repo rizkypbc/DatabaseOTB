@@ -33,7 +33,7 @@ public class DetailDataPort extends AppCompatActivity {
 
 
         try {
-            urlAddress = "http://192.168.1.10/otb/dataPort.php?nama=" + URLEncoder.encode (namaOTB, "UTF-8");
+            urlAddress = "http://192.168.1.14/otb/dataPort.php?nama=" + URLEncoder.encode (namaOTB, "UTF-8");
         } catch (UnsupportedEncodingException ex) {
 
             ex.printStackTrace ();
